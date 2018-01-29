@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './wijmo.css'
+import './wijmo.css';
 import moment from 'moment';
 import { Calendar } from 'wijmo/wijmo.react.input';
 
@@ -9,16 +9,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      StartDate: moment()
+      MinEndDate: moment()
+      
         .subtract('days', 3)
         .startOf('day')
         .format(),
-      EndDate: moment()
-        .add('days', 2)
+      MaxEndDate: moment()
+        .subtract('days', 2)
         .startOf('day')
         .format(),
       Today: moment().format(),
-    };
+   }
   }
 
   render() {
@@ -33,16 +34,19 @@ class App extends Component {
         </p>
 
         <Calendar
-          selectionMode={1}
-          value={this.state.StartDate}
-          min={this.state.EndDate}
-          max={this.state.Today}
+          className="wijCalendar1"
+          /*Incorrect*/
+          min={this.state.MinEndDate}
+          max={this.state.MaxEndDate}
+          value={this.state.Today}
         />
         <Calendar
-          selectionMode={1}
-          min={this.state.StartDate}
-          max={this.state.EndDate}
+          className="wijCalendar2"
           value={this.state.Today}
+          /* Correct*/
+
+          min={this.state.MinEndDate}
+          max={this.state.MaxEndDate}
         />
       </div>
     );
