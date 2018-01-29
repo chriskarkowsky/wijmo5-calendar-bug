@@ -40,9 +40,9 @@ class App extends Component {
         />
         <Calendar
           selectionMode={1}
-          min={this.state.EndDate}
-          max={this.state.Today}
-          value={this.state.StartDate}
+          min={this.state.StartDate}
+          max={this.state.EndDate}
+          value={this.state.Today}
         />
       </div>
     );
