@@ -9,8 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      StartDate: moment("1/15/2018"),
-      EndDate: moment("1/15/2018").add("days",7),
+      StartDate: moment("1/1/2018"),
+      EndDate: moment("1/1/2018").add("days",7),
     };
     this.startDateChanged = this.startDateChanged.bind(this);
   }
@@ -41,7 +41,7 @@ class App extends Component {
           value={this.state.StartDate.format()}
           valueChanged={this.startDateChanged}
         />
-        <p>Pick an End Date</p>
+        <p>Pick an End Date (limited to 1 to 7 days after Start Date</p>
         <p>EndDate: {this.state.EndDate.format()}</p>
         <Calendar
           className="wijCalendar2"
